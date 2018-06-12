@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Solar Note</title>
+  
+  <subtitle>Code ,Think, Play</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://solarzhcl.com/"/>
+  <updated>2018-06-12T05:36:29.577Z</updated>
+  <id>https://solarzhcl.com/</id>
+  
+  <author>
+    <name>Solar</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://solarzhcl.com/2018/06/12/Hello-World/"/>
+    <id>https://solarzhcl.com/2018/06/12/Hello-World/</id>
+    <published>2018-06-12T05:20:16.000Z</published>
+    <updated>2018-06-12T05:36:29.577Z</updated>
+    
+    <content type="html"><![CDATA[<p>练习使用markdown，记录平时的想法<br><a id="more"></a></p><h2 id="这是第一篇blog"><a href="#这是第一篇blog" class="headerlink" title="这是第一篇blog"></a>这是第一篇blog</h2><h3 id="博客头像"><a href="#博客头像" class="headerlink" title="博客头像"></a>博客头像</h3><p><img src="/assets/img/avatar.png" alt="img"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;练习使用markdown，记录平时的想法&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="note" scheme="https://solarzhcl.com/tags/note/"/>
+    
+  </entry>
+  
+</feed>
