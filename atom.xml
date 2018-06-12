@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://solarzhcl.com/"/>
-  <updated>2018-06-12T05:36:29.577Z</updated>
+  <updated>2018-06-12T06:18:11.201Z</updated>
   <id>https://solarzhcl.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>second</title>
+    <link href="https://solarzhcl.com/2018/06/12/second/"/>
+    <id>https://solarzhcl.com/2018/06/12/second/</id>
+    <published>2018-06-12T06:09:43.000Z</published>
+    <updated>2018-06-12T06:18:11.201Z</updated>
+    
+    <content type="html"><![CDATA[<p>第二篇博客，测试用<br><a id="more"></a><br>Lorem ipsum dolor sit amet,<br>consectetur adipisicing elit<br>. Libero delectus.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第二篇博客，测试用&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
