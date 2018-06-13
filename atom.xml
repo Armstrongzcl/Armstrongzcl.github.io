@@ -5,9 +5,9 @@
   <subtitle>Code ,Think, Play</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://solarzhcl.com/"/>
+  <link href="https://blog.solarzhcl.com/"/>
   <updated>2018-06-12T06:18:11.201Z</updated>
-  <id>https://solarzhcl.com/</id>
+  <id>https://blog.solarzhcl.com/</id>
   
   <author>
     <name>Solar</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>second</title>
-    <link href="https://solarzhcl.com/2018/06/12/second/"/>
-    <id>https://solarzhcl.com/2018/06/12/second/</id>
+    <link href="https://blog.solarzhcl.com/2018/06/12/second/"/>
+    <id>https://blog.solarzhcl.com/2018/06/12/second/</id>
     <published>2018-06-12T06:09:43.000Z</published>
     <updated>2018-06-12T06:18:11.201Z</updated>
     
@@ -36,8 +36,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://solarzhcl.com/2018/06/12/Hello-World/"/>
-    <id>https://solarzhcl.com/2018/06/12/Hello-World/</id>
+    <link href="https://blog.solarzhcl.com/2018/06/12/Hello-World/"/>
+    <id>https://blog.solarzhcl.com/2018/06/12/Hello-World/</id>
     <published>2018-06-12T05:20:16.000Z</published>
     <updated>2018-06-12T05:36:29.577Z</updated>
     
@@ -50,7 +50,7 @@
     </summary>
     
     
-      <category term="note" scheme="https://solarzhcl.com/tags/note/"/>
+      <category term="note" scheme="https://blog.solarzhcl.com/tags/note/"/>
     
   </entry>
   
