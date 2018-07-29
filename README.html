@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.solarzhcl.com">
-  <title>OpenStack 学习记录（1） | Solar Note</title>
+  <title>Solar Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概览OpenStack 是一个几乎支持各种类型云环境的开源云计算平台。">
-<meta name="keywords" content="OpenStack">
-<meta property="og:type" content="article">
-<meta property="og:title" content="OpenStack 学习记录（1）">
-<meta property="og:url" content="https://blog.solarzhcl.com/2018/06/13/openstack-学习记录（1）/index.html">
+  <meta name="description" content="Armstrongzcl.github.ioBlog个人博客，分享记录">
+<meta name="keywords" content="Code,Learn">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Solar Note">
+<meta property="og:url" content="https://blog.solarzhcl.com/README.html">
 <meta property="og:site_name" content="Solar Note">
-<meta property="og:description" content="概览OpenStack 是一个几乎支持各种类型云环境的开源云计算平台。">
+<meta property="og:description" content="Armstrongzcl.github.ioBlog个人博客，分享记录">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://docs.openstack.org/install-guide/_images/hwreqs.png">
-<meta property="og:image" content="https://docs.openstack.org/install-guide/_images/network1-services.png">
-<meta property="og:image" content="https://docs.openstack.org/install-guide/_images/network2-services.png">
-<meta property="og:image" content="https://docs.openstack.org/install-guide/_images/networklayout.png">
-<meta property="og:updated_time" content="2018-07-29T08:04:20.169Z">
+<meta property="og:updated_time" content="2018-07-29T07:59:11.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenStack 学习记录（1）">
-<meta name="twitter:description" content="概览OpenStack 是一个几乎支持各种类型云环境的开源云计算平台。">
-<meta name="twitter:image" content="https://docs.openstack.org/install-guide/_images/hwreqs.png">
+<meta name="twitter:title" content="Solar Note">
+<meta name="twitter:description" content="Armstrongzcl.github.ioBlog个人博客，分享记录">
   
     <link rel="alternative" href="/atom.xml" title="Solar Note" type="application/atom+xml">
   
@@ -170,64 +165,12 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-openstack-学习记录（1）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      OpenStack 学习记录（1）
-    </h1>
-  
-
-        
-        <a href="/2018/06/13/openstack-学习记录（1）/" class="archive-article-date">
-  	<time datetime="2018-06-13T06:29:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>OpenStack 是一个几乎支持各种类型云环境的开源云计算平台。</p>
-<a id="more"></a>
-<h2 id="架构样例"><a href="#架构样例" class="headerlink" title="架构样例"></a>架构样例</h2><p>样例需要至少两个节点(主机)来运行基础的虚拟机或实例，可选服务例如块存储、对象存储需要额外的节点。</p>
-<p><img src="https://docs.openstack.org/install-guide/_images/hwreqs.png" alt="img" title="Hardware requirements"></p>
-<h3 id="控制节点"><a href="#控制节点" class="headerlink" title="控制节点"></a>控制节点</h3><p>控制节点运行 认证服务、镜像服务、部分计算管理、网管理、各种网络代理和仪表盘，另外，还包括例如SQL数据库消息队列、NTP的支持。</p>
-<p>可选的,控制节点可以运行块存储、对象存储、Orchestration 和遥感服务。</p>
-<p>控制节点需要最少两个网络接口。</p>
-<h3 id="计算节点"><a href="#计算节点" class="headerlink" title="计算节点"></a>计算节点</h3><p>计算节点运行操作示例的计算管理程序。缺省情况下，计算节点使用<code>KVM</code> 管理程序。另外，计算节点运行网络服务代理来将实例连接到虚拟网络，并通过安全组提供实例的防火墙服务。<br>可以部署不止一个计算节点，每个节点需要最少两个网络接口</p>
-<h3 id="块存储"><a href="#块存储" class="headerlink" title="块存储"></a>块存储</h3><p>可选的块存储节点包含块为示例提供存储和文件共享系统服务的磁盘</p>
-<h3 id="对象存储"><a href="#对象存储" class="headerlink" title="对象存储"></a>对象存储</h3><p>待补充。。。</p>
-<h3 id="网络节点"><a href="#网络节点" class="headerlink" title="网络节点"></a>网络节点</h3><h4 id="可选一：公共网络"><a href="#可选一：公共网络" class="headerlink" title="可选一：公共网络"></a>可选一：公共网络</h4><p><img src="https://docs.openstack.org/install-guide/_images/network1-services.png" alt="img"></p>
-<h4 id="可选二：私有网络"><a href="#可选二：私有网络" class="headerlink" title="可选二：私有网络"></a>可选二：私有网络</h4><p><img src="https://docs.openstack.org/install-guide/_images/network2-services.png" alt="img"></p>
-<hr>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a><strong>环境</strong></h1><p>您必须使用带有管理权限的帐户来配置每个节点。要么以root用户的身份运行命令，要么配置sudo实用程序。</p>
-<p>下面的最低要求应该支持一个带有核心服务和几个CirrOS实例的概念验证环境:</p>
-<ul>
-<li>控制器节点：1处理器、4 GB内存和5 GB存储空间</li>
-<li>计算节点：1个处理器，2 GB内存和10 GB存储</li>
-</ul>
-<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a><strong>安全</strong></h2><h3 id="Passwords"><a href="#Passwords" class="headerlink" title="Passwords"></a><strong>Passwords</strong></h3><p>待补充。。</p>
-<h2 id="主机网络"><a href="#主机网络" class="headerlink" title="主机网络"></a><strong>主机网络</strong></h2><p><img src="https://docs.openstack.org/install-guide/_images/networklayout.png" alt="img"></p>
-<h3 id="控制节点-1"><a href="#控制节点-1" class="headerlink" title="控制节点"></a><strong>控制节点</strong></h3><h4 id="配置网络接口"><a href="#配置网络接口" class="headerlink" title="配置网络接口"></a><strong>配置网络接口</strong></h4><ol>
-<li><p>配置第一个接口作为管理接口</p>
-<p> IP 地址：10.0.0.11<br> 网络掩码：255,255,255,255.0<br> 默认网关：10.0.0.1</p>
-</li>
-<li>编辑<code>/etc/sysconfig/network-scripts/ifcfg-INTERFACE_NAME</code> 文件以包含以下内容：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=INTERFACE_NAME</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">BOOTPROTO=&quot;none&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="配置主机名"><a href="#配置主机名" class="headerlink" title="配置主机名"></a><strong>配置主机名</strong></h4><ol>
-<li><p>设置节点<code>hostname</code> 为 <code>controller</code>。</p>
-</li>
-<li><p>编辑<code>/etc/hosts</code> 文件，包含以下内容：</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># controller</span><br><span class="line">10.0.0.11       controller</span><br><span class="line"></span><br><span class="line"># compute1</span><br><span class="line">10.0.0.31       compute1</span><br><span class="line"></span><br><span class="line"># block1</span><br><span class="line">10.0.0.41       block1</span><br><span class="line"></span><br><span class="line"># object1</span><br><span class="line">10.0.0.51       object1</span><br><span class="line"></span><br><span class="line"># object2</span><br><span class="line">10.0.0.52       object2</span><br></pre></td></tr></table></figure>
-<h3 id="计算节点-1"><a href="#计算节点-1" class="headerlink" title="计算节点"></a><strong>计算节点</strong></h3><ol>
-<li>将第一个接口配置为管理接口</li>
-</ol>
+        <h1 id="Armstrongzcl-github-io"><a href="#Armstrongzcl-github-io" class="headerlink" title="Armstrongzcl.github.io"></a>Armstrongzcl.github.io</h1><p>Blog<br>个人博客，分享记录</p>
 
       
 
@@ -236,17 +179,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OpenStack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -297,7 +229,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.solarzhcl.com/2018/06/13/openstack-学习记录（1）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.solarzhcl.com/README.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,16 +241,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2018/06/12/second/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">second</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -369,7 +291,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -440,10 +362,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">note</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OpenStack</a>
               </li>
             
             <div class="clearfix"></div>
