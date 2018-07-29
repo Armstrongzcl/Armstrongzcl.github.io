@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.solarzhcl.com">
-  <title>Archives | Solar Note</title>
+  <title>ubuntu qq、微信 安装及配置 | Solar Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Change yourself!">
+  <meta name="description" content="安装方法参考：Deepin wine QQ">
 <meta name="keywords" content="Code,Learn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Solar Note">
-<meta property="og:url" content="https://blog.solarzhcl.com/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu qq、微信 安装及配置">
+<meta property="og:url" content="https://blog.solarzhcl.com/2018/07/29/ubuntu-qq-安装及配置/index.html">
 <meta property="og:site_name" content="Solar Note">
-<meta property="og:description" content="Change yourself!">
+<meta property="og:description" content="安装方法参考：Deepin wine QQ">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://blog.solarzhcl.com/assets/pic/qq.png">
+<meta property="og:updated_time" content="2018-07-29T08:44:16.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Solar Note">
-<meta name="twitter:description" content="Change yourself!">
+<meta name="twitter:title" content="ubuntu qq、微信 安装及配置">
+<meta name="twitter:description" content="安装方法参考：Deepin wine QQ">
+<meta name="twitter:image" content="https://blog.solarzhcl.com/assets/pic/qq.png">
   
     <link rel="alternative" href="/atom.xml" title="Solar Note" type="application/atom+xml">
   
@@ -164,114 +167,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-ubuntu-qq-安装及配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      ubuntu qq、微信 安装及配置
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/ubuntu-qq-安装及配置/" class="archive-article-date">
+
+        
+        <a href="/2018/07/29/ubuntu-qq-安装及配置/" class="archive-article-date">
   	<time datetime="2018-07-29T08:19:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/ubuntu-qq-安装及配置/">ubuntu qq、微信 安装及配置</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装方法参考：<a href="https://www.lulinux.com/archives/1319" target="_blank" rel="noopener">Deepin wine QQ</a></p>
+<a id="more"></a>
+<p>下载安装包安装。</p>
+<ol>
+<li><p>下载安装deepin-wine环境</p>
+<p> 链接：<a href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu" target="_blank" rel="noopener">https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu</a></p>
+</li>
+<li><p>安装相应容器：<br> 链接：<a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/" target="_blank" rel="noopener">http://mirrors.aliyun.com/deepin/pool/non-free/d/</a></p>
+<ul>
+<li><a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.office/" target="_blank" rel="noopener">TIM</a></li>
+<li><a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/" target="_blank" rel="noopener">QQ</a></li>
+<li><a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/" target="_blank" rel="noopener">微信</a></li>
+</ul>
+</li>
+</ol>
+<p>TIM默认图标文件像素比较低，在 <code>.desktop</code>文件中更换图标:</p>
+<p><img src="/assets/pic/qq.png" alt="img"></p>
+<h3 id="设置消息通知"><a href="#设置消息通知" class="headerlink" title="设置消息通知"></a>设置消息通知</h3><p>利用<code>notify-send</code> 和 <code>inotify-tools</code> 两个工具，监听qq消息声音文件的读取</p>
+<p>创建脚本文件<code>qq-notify.sh</code>:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">file=<span class="string">"/home/XXX/.deepinwine/Deepin-TIM/drive_c/Program Files/Tencent/TIM/Misc/Sound/Classic/msg.wav"</span></span><br><span class="line">inotifywait -mq -e open <span class="string">"<span class="variable">$file</span>"</span> | <span class="keyword">while</span> <span class="built_in">read</span> event</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">notify-send -i <span class="string">"/home/solar/图片/qq.png"</span> <span class="string">'XXX'</span> <span class="string">'收到一条QQ消息'</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>将脚本文件添加到开机启动</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.solarzhcl.com/2018/07/29/ubuntu-qq-安装及配置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/12/second/" class="archive-article-date">
-  	<time datetime="2018-06-12T06:09:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/12/second/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">second</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/12/second/">second</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置消息通知"><span class="toc-number">1.</span> <span class="toc-text">设置消息通知</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/12/Hello-World/" class="archive-article-date">
-  	<time datetime="2018-06-12T05:20:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/12/Hello-World/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -294,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
